@@ -228,7 +228,7 @@ fn generate_testing_assembly<E: Engine, C: Circuit<E>, P: PlonkConstraintSystemP
 pub fn get_trusted_setup<E: Engine>(size: usize) -> Crs<E, CrsForMonomialForm> {
     assert!(size.is_power_of_two());
 
-    let crs_file_str = std::env::var("CRS_FILE").unwrap_or("setup_2^26.key".to_string());
+    let crs_file_str = std::env::var("CRS_FILE").unwrap_or("setup_2^22.key".to_string());
     println!("loading keys from {}", crs_file_str);
     let file = File::open(crs_file_str).expect("File not found");
     let mut crs_mons = Crs::<E, CrsForMonomialForm>::read(file).unwrap();
